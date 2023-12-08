@@ -47,7 +47,7 @@ const routes = [
     name: 'Panel',
     component: PanelView,
     meta: {
-      isAdmin: false,
+      isAdmin: true,
       title: "linkify - Admin Panel",
     }
   },
@@ -55,7 +55,7 @@ const routes = [
     path: '/policy',
     name: 'Policy',
     component: PolicyView,
-    meta: {
+    meta: { 
       title: "linkify - Privacy Policy",
     }
   },
