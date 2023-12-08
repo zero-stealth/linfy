@@ -1,0 +1,229 @@
+@media screen {
+  .panel-container {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    display: flex;
+    z-index: 9999;
+    position: fixed;
+    overflow: hidden;
+    overflow-y: hidden;
+    color: var(--primary-color);
+    background-color: var(--background-light);
+  }
+
+  .pan-arrow-container {
+    gap: 10px;
+    display: flex;
+    padding: 8px;
+    cursor: pointer;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    border: 1px solid var(--background-light);
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .pan-arrow-container:hover {
+    background-color: var(--fade-color);
+  }
+
+  .pan-arrow-container span {
+    font-size: .9rem;
+    color: var(--background-light);
+  }
+
+  .pan-arrow {
+    height: 20px;
+    fill: var(--background-light);
+  }
+
+  .panel-bar {
+    height: 100%;
+    display: flex;
+    z-index: 9999;
+    flex-direction: column;
+    transition: all 0.5s ease 0s;
+    justify-content: space-between;
+    -webkit-transition: all 0.5s ease 0s;
+    background-color: var(--primary-color);
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  }
+
+
+
+  .panel-menu {
+    right: 0;
+    bottom: 0;
+    right: 45%;
+    padding: 5px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px 20px 0 0;
+    background-color: transparent;
+    border: 2px solid var(--secondary-light);
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  }
+
+
+  .panel-icon-nav {
+    height: 30px;
+    fill: var(--background-light);
+  }
+
+  .panel-profile {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .panel-img {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .panel-nav {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .panel-nav h1 {
+    font-size: 0.9rem;
+  }
+
+  .panel-btn-container {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .panel-bar span {
+    display: none;
+  }
+
+  .panel-btn {
+    gap: 10px;
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    align-items: center;
+    color: var(--background-light);
+    background-color: var(--primary-color);
+  }
+
+  .panel-btn span {
+    font-size: 0.7rem;
+    font-weight: 200;
+    text-transform: capitalize;
+  }
+
+  .panel-btn:hover {
+    color: var(--background-light);
+    background-color: var(--fade-color);
+  }
+
+  .panel-btn:hover .icon-panel {
+    fill: var(--background-light);
+  }
+
+  .icon-panel {
+    height: 20px;
+    fill: var(--background-light);
+  }
+
+  .active-cp {
+    color: var(--background-light);
+    background-color: var(--fade-color);
+    border-left: 2px solid var(--background-light);
+  }
+
+  .active-cp .icon-panel {
+    fill: var(--background-light);
+  }
+
+  .inactive-cp {
+    color: var(--background-light);
+    background-color: var(--primary-color);
+  }
+
+  .panel-main {
+    width: 100%;
+    padding: 4px;
+    overflow-y: auto;
+  }
+
+  .close-dash {
+    position: absolute;
+    left: 100000000000px;
+  }
+
+  .float-menu {
+    bottom: 10px;
+    right:10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+    align-items: center;
+    border-radius: 360%;
+    justify-content: center;
+    background-color: var(--primary-color);
+    border: 2px solid var(--background-light);
+  }
+
+  .float-m-icon {
+    height: 20px;
+    width: 20px;
+    fill: var(--background-light);
+  }
+}
+
+/* using it as global style for larger devices  */
+@media only screen and (min-width: 48em) {
+  .float-menu {
+    display: none;
+  }
+
+  .panel-bar {
+    flex: 8%;
+  }
+  
+  
+  .panel-img {
+    width: 100px;
+    height: 40px;
+  }
+  .panel-bar span {
+    display: flex;
+  }
+
+
+  .panel-profile {
+    height: 100px;
+  }
+
+  .panel-menu {
+    display: none;
+  }
+
+  .panel-btn {
+    font-size: 0.9rem;
+  }
+
+  .panel-main {
+    flex: 80%;
+    min-width: 20%;
+    overflow-y: hidden;
+  }
+}

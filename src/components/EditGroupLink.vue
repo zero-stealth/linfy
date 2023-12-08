@@ -1,0 +1,80 @@
+<template>
+  <div>
+    <form @submit.prevent="handleSubmit" enctype="multipart/form-data" class="form-container">
+      <div class="form-wrapper">
+        <h1>Add Group link</h1>
+        <div class="form-group">
+          <label for="title">Group title:</label>
+          <input v-model="title" type="text" class="form-g-input" placeholder="penguin" id="title" />
+        </div>
+        <div class="form-group">
+          <label for="logo">Group Logo:</label>
+          <input
+            @change="handleFileUpload"
+            type="file"
+            class="form-g-input"
+            id="Image"
+            accept="image/*"
+          />
+        </div>
+        <div class="form-group">
+          <label for="link">Link:</label>
+          <input
+            v-model="link"
+            type="text"
+            class="form-g-input"
+            placeholder="http://example.com"
+            id="link"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <input
+            v-model="description"
+            type="text"
+            class="form-g-input"
+            placeholder="link for group"
+            id="description"
+          />
+        </div>
+        <button type="submit" class="btn-f-f">Add Job</button>
+      </div>
+    </form>
+  </div>
+</template>
+<script setup>
+import { ref } from 'vue'
+const emit = defineEmits(['formSubmit'])
+
+
+const title = ref('')
+const logo = ref(null)
+const link = ref('')
+const description = ref('')
+
+function handleFileUpload(event) {
+  const file = event.target.files[0]
+  if (file) {
+    logo.value = file
+  }
+}
+
+function handleSubmit() {
+  try {
+    const formData = {
+      title: title.value,
+      logo: logo.value,
+      link: link.value,
+      description: description.value
+    }
+
+    emit('formSubmit', formData)
+  } catch (err) {
+    console.log(err)
+  }
+}
+</script>
+
+<style>
+@import '@/style/games.css';
+</style>

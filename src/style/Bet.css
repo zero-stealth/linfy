@@ -1,0 +1,111 @@
+@media screen {
+  .Account-container {
+    gap: 10px;
+    display: flex;
+    width: inherit;
+    flex-direction: column;
+  }
+
+  .icon-acc {
+    width: 40px;
+    height: 40px;
+    fill: var(--background-light);
+  }
+
+  .acc-m {
+    width: 100%;
+    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: scroll;
+    background-color: var(--fade-color);
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .acc-m thead {
+    font-size: 0.7rem;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+  }
+
+  .acc-m tbody {
+    font-size: 0.7rem;
+  }
+
+  .acc-m th,
+  td {
+    padding: 20px;
+  }
+
+  .acc-m td {
+    font-weight: 200;
+    border-bottom: none;
+    text-transform: capitalize;
+    color: var(--background-color);
+    border: 4px solid var(--primary-color);
+  }
+
+  .acc-m th {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--background-light);
+  }
+
+  .Account-tbl-img {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .Account-delete {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-delete {
+    width: 24px;
+    height: 24px;
+    fill: var(--tertiary-color);
+  }
+}
+
+.game-edit {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  position: fixed;
+  overflow: hidden;
+  overflow-y: auto;
+  flex-direction: column;
+  background-color: var(--primary-color);
+}
+
+.mobile-exit {
+  cursor: pointer;
+}
+
+.showEdit {
+  display: flex;
+}
+
+.closeEdit {
+  display: none;
+}
+
+/* using it as global style for larger devices  */
+@media only screen and (min-width: 48em) {
+  .acc-m {
+    max-height: 640px;
+  }
+
+  .acc-m td {
+    text-align: center;
+  }
+
+}
