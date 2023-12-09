@@ -98,7 +98,7 @@
     font-weight: 200;
     text-align: center;
     border-bottom: none;
-    text-transform: capitalize;
+    text-transform: lowercase;
     color: var(--background-color);
     border: 1px solid var(--primary-color);
     background-color: var(--light-primary-color);
@@ -193,7 +193,7 @@
   .icon-delete {
     width:24px;
     height: 24px;
-    fill: var(--tertiary-color);
+    fill: var(--secondary-color);
   }
  
 }

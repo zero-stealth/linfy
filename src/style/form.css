@@ -11,6 +11,10 @@
     font-size: .8rem;
   }
 
+  .form-g-input {
+    color: var(--primary-color);
+  }
+
   .form-g-input::placeholder {
     color: var(--primary-color);
   }

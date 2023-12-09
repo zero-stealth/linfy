@@ -80,11 +80,11 @@ const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 const getGroupLink = async () => {
   try {
     const response = await axios.get(
-      `${SERVER_HOST}/data/links/`
+      `${SERVER_HOST}/data/links`
     )
     linkData.value = response.data.length > 0 ? [response.data] : []
   } catch (err) {
-    console.log(err)
+    toast.error(err.response.data.message)
   }
 }
 
@@ -131,7 +131,8 @@ async function updateGroupLink(formData) {
     )
     toast.success('group link updated')
   } catch (error) {
-    toast.error('Error updating group link')
+    toast.error(error.response.data.message)
+
   }
 }
 
@@ -149,10 +150,10 @@ const deleteGroupLink = async (id) => {
     })
     toast.success('group link deleted')
     await getGroupLink()
-  } catch (err) {
-    toast.error('group link deletion failed')
+  } catch (error) {
+    toast.error(error.response.data.message)
+
   }
-  toast.error('group link deleted')
 }
 
 

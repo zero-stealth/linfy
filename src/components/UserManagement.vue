@@ -45,10 +45,11 @@
 import axios from 'axios'
 import DeleteIcon from '@/icons/DeleteIcon.vue'
 import { ref, watchEffect, onMounted } from 'vue'
+import { useToast } from 'vue-toastification'
 
 const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 
-const message = ref('')
+const toast = useToast()
 const accountData = ref([])
 const searchAccount = ref('')
 const filteredAccountData = ref([])
@@ -90,12 +91,11 @@ const deleteAccount = async (id) => {
     })
 
     await getAccountsData()
-    message.value = 'Account deleted successfully.'
+    toast.success('Account deleted successfully!')
   } catch (err) {
-    console.error(err)
-    message.value = 'Error deleting account.'
+    toast.error('Failed to delete account!')
   }
-  alert(message.value)
+  
 }
 
 onMounted(() => {

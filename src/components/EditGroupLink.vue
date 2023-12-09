@@ -2,7 +2,7 @@
   <div>
     <form @submit.prevent="handleSubmit" enctype="multipart/form-data" class="form-container">
       <div class="form-wrapper">
-        <h1>Add Group link</h1>
+        <h1>Update Group link</h1>
         <div class="form-group">
           <label for="title">Group title:</label>
           <input v-model="title" type="text" class="form-g-input" placeholder="penguin" id="title" />
@@ -37,7 +37,7 @@
             id="description"
           />
         </div>
-        <button type="submit" class="btn-f-f">Add Job</button>
+        <button type="submit" class="btn-f-f">Update Job</button>
       </div>
     </form>
   </div>

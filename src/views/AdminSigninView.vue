@@ -16,7 +16,6 @@
           placeholder="Confirm Password"
           v-model="confirmPassword"
         />
-        <p v-if="errMsg" class="error-message">{{ errMsg }}</p>
         <button class="btn-f" type="submit">Sign up</button>
       </form>
       <span>or</span>
@@ -33,12 +32,14 @@ import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
+import { useToast } from 'vue-toastification'
+
 
 const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 const authStore = useAuthStore()
 const router = useRouter()
+const toast = useToast()
 const password = ref('')
-const errMsg = ref('')
 const email = ref('')
 const confirmPassword = ref('')
 
@@ -64,19 +65,16 @@ const create = async () => {
         authStore.updateAdmin(isAdmin)
         localStorage.setItem('admin', isAdmin)
         router.push({ name: 'Panel' })
+        toast.success('Account created successfully!')
       } else {
         router.push({ name: 'Home' })
-
+        toast.success('Account created successfully!')
       }
     } catch (error) {
-      if (error.response.status === 400) {
-        errMsg.value = 'User already exists!'
-      } else {
-        errMsg.value = 'Invalid email or password'
-      }
+      toast.error(error.response.data.error)
     }
   } else {
-    errMsg.value = 'Please enter all the required fields'
+    toast.error('Please enter all the required fields')
     reset()
   }
 }

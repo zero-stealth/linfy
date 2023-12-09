@@ -11,7 +11,6 @@
       </form>
       <form @submit.prevent="resetAuth" class="l-form" v-else>
         <input type="email" class="input-l" placeholder="Email Address" v-model="email" />
-        <p>{{ errMsg }}</p>
         <button class="btn-f" type="submit">Request reset</button>
       </form>
       <span>or</span>
@@ -65,12 +64,13 @@ const login = async () => {
         authStore.updateAdmin(isAdmin)
         localStorage.setItem('admin', isAdmin)
         router.push({ name: 'Panel' })
+        toast.success('Welcome back!')
       } else {
         router.push({ name: 'Home' })
-
+        toast.success('login successful!')
       }
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data.error)
     }
   } else {
     toast.error('Please enter your email and password');
@@ -96,7 +96,8 @@ const resetAuth = async () => {
       router.push({ name: 'Reset' })
       toast.success(response.data.message)
     } catch (error) {
-      toast.error(error.response.data.message)
+      toast.error(error.response.data.error)
+
     }
   } else {
     toast.error('Please enter your email')
