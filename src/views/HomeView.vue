@@ -66,8 +66,8 @@ onMounted(() => {
     <div class="home-container">
       <div class="home-component">
         <div class="home-header">
-          <h1>Group links</h1>
-          <p>copy and share links to different groups that you desire</p>
+          <h1>University Group Links</h1>
+          <p>copy and share links to different university groups accross the world</p>
         </div>
         <div class="home-inner" v-if="data.length > 0">
           <div class="home-details">
@@ -102,7 +102,7 @@ onMounted(() => {
         </div>
         <div v-else class="nothing-container">
           <img src="../assets/nothing.png" alt="nothing" class="nothing-img" />
-          <p>Nothing added yet</p>
+          <p>Nothing links added yet</p>
         </div>
       </div>
       <Footer />

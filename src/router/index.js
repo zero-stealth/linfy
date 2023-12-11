@@ -15,7 +15,7 @@ const routes = [
     name: 'Home',
     component: HomeView,
     meta: {
-      title: "linkify - Home",
+      title: "Unigrouplinks - University Group Links",
     }
   },
   {
@@ -23,7 +23,7 @@ const routes = [
     name: 'AdminLogin',
     component: AdminLoginView,
     meta: {
-      title: "linkify - Admin Login",
+      title: "Unigrouplinks - Admin Login",
     }
   },
   {
@@ -31,7 +31,7 @@ const routes = [
     name: 'AdminSignin',
     component: AdminSigninView,
     meta: {
-      title: "linkify - Admin Signin",
+      title: "Unigrouplinks - Admin Signin",
     }
   },
   {
@@ -39,7 +39,7 @@ const routes = [
     name: 'Support',
     component: SupportView,
     meta: {
-      title: "linkify - Support",
+      title: "Unigrouplinks - Support",
     }
   },
   {
@@ -48,7 +48,7 @@ const routes = [
     component: PanelView,
     meta: {
       isAdmin: true,
-      title: "linkify - Admin Panel",
+      title: "Unigrouplinks - Admin Panel",
     }
   },
   {
@@ -56,7 +56,7 @@ const routes = [
     name: 'Policy',
     component: PolicyView,
     meta: { 
-      title: "linkify - Privacy Policy",
+      title: "Unigrouplinks - Privacy Policy",
     }
   },
   {
@@ -64,7 +64,7 @@ const routes = [
     name: 'Disclaimer',
     component: DisclaimerView,
     meta: {
-      title: "linkify - Disclaimer",
+      title: "Unigrouplinks - Disclaimer",
     }
   },
   {
@@ -72,7 +72,7 @@ const routes = [
     name: 'Terms',
     component: TermsView,
     meta: {
-      title: "linkify - Terms and Conditions",
+      title: "Unigrouplinks - Terms and Conditions",
     }
   },
   {
