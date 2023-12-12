@@ -78,20 +78,19 @@
 
   .panel-profile {
     display: flex;
-    padding: 10px;
     align-items: center;
     justify-content: center;
   }
 
   .panel-img {
-    width: 30px;
-    height: 30px;
-    background-size: contain;
+    width: 100%;
+    height: 40px;
+    background-size: cover;
     background-repeat: no-repeat;
   }
 
   .panel-nav {
-    gap: 20px;
+    gap: 10px;
     display: flex;
     flex-direction: column;
   }
@@ -201,16 +200,10 @@
   
   
   .panel-img {
-    width: 100px;
-    height: 40px;
+    height: 180px;
   }
   .panel-bar span {
     display: flex;
-  }
-
-
-  .panel-profile {
-    height: 100px;
   }
 
   .panel-menu {

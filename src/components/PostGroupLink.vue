@@ -43,7 +43,17 @@
             id="description"
           />
         </div>
-        <button type="submit" class="btn-f-f">Add link</button>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <select v-model="country" class="form-g-input" id="country">
+            <option disabled value="">Choose country</option>
+            <option value="United States">United States</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="Canada">Canada</option>
+            <option value="Australia">Australia</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-f-f">Post link</button>
       </div>
     </form>
   </div>
@@ -57,6 +67,7 @@ import { useToast } from 'vue-toastification'
 const link = ref('')
 const title = ref('')
 const logo = ref(null)
+const country = ref('')
 const toast = useToast()
 const description = ref('')
 
@@ -74,6 +85,7 @@ async function handleSubmit() {
     title.value.trim() !== '' &&
     logo.value !== null &&
     link.value.trim() !== '' &&
+    country.value.trim() !== '' &&
     description.value.trim() !== ''
   ) {
     try {
@@ -81,6 +93,7 @@ async function handleSubmit() {
       formData.append('title', title.value)
       formData.append('logo', logo.value)
       formData.append('link', link.value)
+      formData.append('country', country.value)
       formData.append('description', description.value)
 
       const user = JSON.parse(localStorage.getItem('token'))
@@ -92,7 +105,6 @@ async function handleSubmit() {
       })
       toast.success('link added successfully!')
     } catch (err) {
-      console.error(err)
       toast.error('An error occurred while adding the group link.')
     }
   } else {

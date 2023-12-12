@@ -1,16 +1,23 @@
 <script setup>
 import axios from 'axios'
-import { ref, onMounted } from 'vue'
 import CopyIcon from '@/icons/CopyIcon.vue'
 import { useToast } from 'vue-toastification'
 import ShareIcon from '@/icons/ShareIcon.vue'
+import { ref, onMounted, computed } from 'vue'
+import FilterIcon from '../icons/FilterIcon.vue'
 import Footer from '@/components/footerComponent.vue'
-
-const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 
 const data = ref([])
 const toast = useToast()
+const selectedCountry = ref('')
+const isDropdownOpen = ref(false)
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 const link = ref(data.value.length > 0 ? data.value[0]?.link : '')
+const countries = ['All countries', 'Canada', 'Australia', 'United States', 'United Kingdom']
+
+const toggleDropdown = () => {
+  isDropdownOpen.value = !isDropdownOpen.value
+}
 
 const getGroupLink = async () => {
   try {
@@ -23,6 +30,23 @@ const getGroupLink = async () => {
     toast.error(err.response.data.message)
   }
 }
+const selectCountry = (country) => {
+  selectedCountry.value = country
+  isDropdownOpen.value = false
+}
+
+const filteredData = computed(() => {
+  const countryToFilter = selectedCountry.value
+
+  switch (countryToFilter) {
+    case null:
+    case '':
+    case 'All countries':
+      return data.value
+    default:
+      return data.value.filter((d) => d.country && d.country.includes(countryToFilter))
+  }
+})
 
 const copyLink = (link) => {
   if (!navigator.clipboard) {
@@ -55,7 +79,6 @@ const shareLink = (link) => {
   }
 }
 
-
 onMounted(() => {
   getGroupLink()
 })
@@ -66,21 +89,39 @@ onMounted(() => {
     <div class="home-container">
       <div class="home-component">
         <div class="home-header">
-          <h1>University Group Links</h1>
-          <p>copy and share links to different university groups accross the world</p>
+          <div>
+            <h1>University Group Links</h1>
+            <p>copy and share links to different university groups accross the world</p>
+          </div>
+          <div class="custom-dropdown" id="customDropdown">
+            <div class="selected-option" @mouseover="toggleDropdown">
+              {{ selectedCountry || 'Filter by country' }}
+              <FilterIcon class="dropdown-icon" />
+            </div>
+            <div class="dropdown-options" v-show="isDropdownOpen">
+              <div
+                class="option"
+                v-for="(country, index) in countries"
+                :key="index"
+                @click="selectCountry(country)"
+              >
+                {{ country }}
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="home-inner" v-if="data.length > 0">
+        <div class="home-inner" v-if="filteredData.length > 0">
           <div class="home-details">
             <div
               class="link-inner-details"
               :class="{ active: d.link === link }"
               @click="link = d.link"
-              v-for="d in data"
+              v-for="d in filteredData"
               :key="d.link"
             >
               <img :src="d.logo" :alt="d.title" class="link-image" />
-              <p>{{ d.title }}</p>
-              <div class="hover-link-info">
+              <div class="link-info">
+                <h1>{{ d.title }}</h1>
                 <p>{{ d.description }}</p>
               </div>
             </div>
@@ -100,11 +141,13 @@ onMounted(() => {
             </div>
           </div>
         </div>
-        <div v-else class="nothing-container">
-          <img src="../assets/nothing.png" alt="nothing" class="nothing-img" />
-          <p>Nothing links added yet</p>
+        <div>
+          <div class="nothing-container" v-if="filteredData.length === 0">
+            <img src="../assets/nothing.png" alt="nothing" class="nothing-img" />
+            <p>No links added</p>
+          </div>
         </div>
-      </div>
+       </div>
       <Footer />
     </div>
   </div>

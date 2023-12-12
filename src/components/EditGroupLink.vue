@@ -37,6 +37,16 @@
             id="description"
           />
         </div>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <select v-model="country" class="form-g-input" id="country">
+            <option disabled value="">Choose country</option>
+            <option value="united-states">United States</option>
+            <option value="united-Kingdom">United Kingdom</option>
+            <option value="canada">Canada</option>
+            <option value="australia">Australia</option>
+          </select>
+        </div>
         <button type="submit" class="btn-f-f">Update Job</button>
       </div>
     </form>
@@ -50,6 +60,7 @@ const emit = defineEmits(['formSubmit'])
 const title = ref('')
 const logo = ref(null)
 const link = ref('')
+const country = ref('')
 const description = ref('')
 
 function handleFileUpload(event) {
@@ -65,12 +76,13 @@ function handleSubmit() {
       title: title.value,
       logo: logo.value,
       link: link.value,
+      country: country.value,
       description: description.value
     }
 
     emit('formSubmit', formData)
   } catch (err) {
-    console.log(err)
+    // console.log(err)
   }
 }
 </script>

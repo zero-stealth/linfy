@@ -14,6 +14,7 @@
     background-position: center;
     background-repeat: no-repeat;
     color: var(--primary-color);
+    background-image: url('@/assets/bg.jpg');
   }
 
   @keyframes gradient {

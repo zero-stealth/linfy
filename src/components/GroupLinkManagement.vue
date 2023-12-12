@@ -110,6 +110,9 @@ async function updateGroupLink(formData) {
     if (formData.title !== '') {
       formDataa.append('title', formData.title)
     }
+    if (formData.country !== '') {
+      formDataa.append('country', formData.country)
+    }
     if (formData.logo !== null) {
       formDataa.append('logo', formData.logo)
     }
