@@ -1,5 +1,6 @@
 <script setup>
 import axios from 'axios'
+import OpenIcon from '../icons/OpenIcon.vue'
 import CopyIcon from '@/icons/CopyIcon.vue'
 import { useToast } from 'vue-toastification'
 import ShareIcon from '@/icons/ShareIcon.vue'
@@ -19,6 +20,7 @@ const toggleDropdown = () => {
   isDropdownOpen.value = !isDropdownOpen.value
 }
 
+
 const getGroupLink = async () => {
   try {
     const response = await axios.get(`${SERVER_HOST}/data/links`)
@@ -29,6 +31,10 @@ const getGroupLink = async () => {
   } catch (err) {
     toast.error(err.response.data.message)
   }
+}
+
+const openLink = (link) => {
+  window.open(link, '_blank')
 }
 const selectCountry = (country) => {
   selectedCountry.value = country
@@ -121,7 +127,10 @@ onMounted(() => {
             >
               <img :src="d.logo" :alt="d.title" class="link-image" />
               <div class="link-info">
+                <div class="link-title">
                 <h1>{{ d.title }}</h1>
+                  <OpenIcon class="open-icon" @click="openLink(d.link)"/>
+                </div>
                 <p>{{ d.description }}</p>
               </div>
             </div>
