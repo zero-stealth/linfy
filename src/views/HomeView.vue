@@ -131,7 +131,7 @@ onMounted(() => {
                 <h1>{{ d.title }}</h1>
                   <OpenIcon class="open-icon" @click="openLink(d.link)"/>
                 </div>
-                <p>{{ d.description }}</p>
+                <p @click="openLink(d.link)">{{ d.description }}</p>
               </div>
             </div>
           </div>
