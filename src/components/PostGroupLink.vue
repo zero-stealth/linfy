@@ -47,10 +47,10 @@
           <label for="country">Country</label>
           <select v-model="country" class="form-g-input" id="country">
             <option disabled value="">Choose country</option>
-            <option value="United States">United States</option>
-            <option value="United Kingdom">United Kingdom</option>
-            <option value="Canada">Canada</option>
-            <option value="Australia">Australia</option>
+            <option value="united States">United States</option>
+            <option value="united Kingdom">United Kingdom</option>
+            <option value="canada">Canada</option>
+            <option value="australia">Australia</option>
           </select>
         </div>
         <button type="submit" class="btn-f-f">Post link</button>

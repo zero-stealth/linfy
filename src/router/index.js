@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
+import LinkView from '@/views/LinkView.vue';
 import AdminLoginView from '@/views/AdminLoginView.vue';
 import AdminSigninView from '@/views/AdminSigninView.vue';
 import SupportView from '@/views/SupportView.vue';
@@ -16,6 +17,16 @@ const routes = [
     component: HomeView,
     meta: {
       title: "Unigrouplinks - University Group Links",
+    }
+  },
+
+
+  {
+    path: '/links/:country',
+    name: 'Links',
+    component: LinkView,
+    meta: {
+      title: "Unigrouplinks - Group Links",
     }
   },
   {
