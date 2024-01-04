@@ -6,10 +6,10 @@
           <table>
             <thead>
               <tr>
-                <th>Logo</th>
+                <th>Name</th>
                 <th>Title</th>
                 <th>Link</th>
-                <th>description</th>
+                <th>Edit</th>
                 <th>Delete</th>
               </tr>
             </thead>
@@ -22,10 +22,11 @@
                   </div>
                 </td>
                 <td>
-                  <span>{{ data.link }}</span>
+                  <span>{{ data.description }}</span>
+
                 </td>
                  <td>
-                  <span>{{ data.description }}</span>
+                  <span>{{ data.link }}</span>
                 </td>
                 <td>
                   <div class="game-delete" @click="editGame(EditGroupLink, data._id)">

@@ -1,7 +1,7 @@
 <template>
   <div class="footer-container">
     <div class="footer-link-container">
-        <RouterLink class="footer-link" :to="{ name: 'Home' }">Home</RouterLink>
+      <RouterLink class="footer-link" :to="{ name: 'Home' }">Home</RouterLink>
         <RouterLink class="footer-link" :to="{ name: 'Support' }">Support</RouterLink>
         <RouterLink class="footer-link" :to="{ name: 'Policy' }">Policy</RouterLink>
         <RouterLink class="footer-link" :to="{ name: 'Disclaimer' }">Disclaimer</RouterLink>

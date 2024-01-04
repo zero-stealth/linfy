@@ -33,7 +33,7 @@
             v-model="description"
             type="text"
             class="form-g-input"
-            placeholder="link for group"
+            placeholder="description for group"
             id="description"
           />
         </div>
